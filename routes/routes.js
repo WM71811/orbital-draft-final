@@ -50,11 +50,14 @@ router.post('/loggedin/createpost',userpostsController.createPost);
 //GET route for show all posts in home page
 router.get('/showpost',controller.showIndex);
 
+//PUT route to edit post
 router.put('/post/:id/edit', userpostsController.update);//update?
 
+//GET route to show edit page
 router.get('/post/:id/edit', controller.showEditPostPage);
 
-router.delete('/post/:id/', controller.showEditPostPage);
+//DELETE route to delete post
+router.delete('/post/:id/delete', userpostsController.deletePost);
 
 
 //GET route for show ask for experts page

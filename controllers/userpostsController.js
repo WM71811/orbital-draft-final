@@ -83,7 +83,7 @@ var update = function(req, res) {
 
   const id = req.params.id;
 
-  Post.findByIdAndUpdate(id, post, { useFindAndModify: false })
+  post.findByIdAndUpdate(id, post, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -99,7 +99,7 @@ var update = function(req, res) {
 });
 };
 
-var delete = (req, res) => {
+var deletePost = (req, res) => {
   Post.findByIdAndRemove(req.params.id)
     .then((post) => {
       if (!post) {
@@ -125,5 +125,5 @@ console.log("cannot find editpost");
 module.exports.createPost = createPost;
 module.exports.showCreatePostPage = showCreatePostPage;
 module.exports.update = update;
-module.exports.delete = delete;
+module.exports.deletePost = deletePost;
 //module.exports.showEditPostPage=showEditPostPage;
