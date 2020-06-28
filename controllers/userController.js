@@ -145,7 +145,6 @@ var userLogOut =function (req, res, next) {
 //this function is to enter a specific user post page
 var getUserPostById = function(req,res){
     var postInx = req.params.id;
-    // Post.find(function(err,posts){
     Post.findById(postInx,function(err,users){
         Comment.find( function ( err, comments, count ){
             res.render( 'single', {

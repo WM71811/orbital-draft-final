@@ -60,7 +60,7 @@ router.get('/post/:id/edit', controller.showEditPostPage);
 router.delete('/post/:id/delete', userpostsController.deletePost);
 
 
-//GET route for show ask for experts page
+//GET route for show ask for organizers page
 router.get('/askexpert',controller.askExpert);
 
 //GET route for show searchresult

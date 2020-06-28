@@ -1,7 +1,7 @@
 {
-  "name": "BabyCaring",
+  "name": "Dots Forum",
   "version": "1.0.0",
-  "description": "INFO30005 Project",
+  "description": "Orbital project",
   "engines": {
     "node": "10.15.3",
     "npm": "6.4.1"
@@ -29,6 +29,6 @@
   "scripts": {
     "start": "node app.js"
   },
-  "author": "Web Artist",
+  "author": "Team Dots Tech",
   "license": "ISC"
 }
