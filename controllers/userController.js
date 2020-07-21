@@ -31,6 +31,7 @@ var passwordCheck =function (req, res, next) {
             email: req.body.email,
             username: req.body.username,
             password: req.body.password,
+            introduction: req.body.introduction,
         }
 
         User.create(userData, function (error, user) {
@@ -114,6 +115,7 @@ var editProfilePage =  function (req, res, next) {
             if (error || !user) {
                 var err = new Error('Wrong email or password.');
                 err.status = 401;
+                res.render("errorinupdating");
                 return next(err);
             } else {
                 req.session.userId = user._id;
@@ -146,12 +148,110 @@ var userLogOut =function (req, res, next) {
 var getUserPostById = function(req,res){
     var postInx = req.params.id;
     Post.findById(postInx,function(err,users){
-        Comment.find( function ( err, comments, count ){
+        Comment.find( {_id: {$in:users.comment}}, function ( err, comments, count ){
             res.render( 'single', {
                 comments : comments,
                 addedpost:users,
             });
         });
+    });
+}
+
+var showEditPostPage =function(req, res)  {
+        Post.findById(req.params.id, (err, users) => {
+            if (err) {
+                res.sendStatus(500);
+            } else {
+            //console.log(users);
+                res.render('editpost', {
+                addedpost: users,
+                });
+            }
+        });
+}
+
+
+      /*User.findById(req.session.userId)
+          .exec(function (error, user) {
+      var post = new Post({
+          "title":req.body.title,
+          "name":user.username,
+          "postcontent":req.body.postcontent,
+      });*/
+var update = function(req, res) {
+    /*Post.findByIdAndRemove(req.params.id)
+        .then((post) => {
+          if (!post) {
+            return res.status(404).send({
+              message: "Post not found ",
+            });
+          }
+User.findById(req.session.userId)
+                .exec(function (error, user) {
+            var post = new Post({
+                "title":req.body.title,
+                "name":user.username,
+                "postcontent":req.body.postcontent,
+            });
+            post.save(function(err,users){
+                if(!err){
+                    Post.find((err, users) => {
+                        if (err) {
+                            res.sendStatus(500);
+                        } else {
+                            res.render('editsuccess');
+                        }
+                    });
+                }else{
+                    res.sendStatus(400);
+                }
+            });
+            });
+            })
+        .catch((err) => {
+          return res.status(500).send({
+            message: "Could not delete post ",
+          });
+        });
+
+}*/
+const obj = JSON.parse(JSON.stringify(req.body));
+
+ Post.findByIdAndUpdate(req.params.id, {"title":obj.title,
+                "name":obj.name,
+                "postcontent":obj.postcontent}, { useFindAndModify: false })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot update post. Maybe post was not found!`
+        });
+      } else res.render('editsuccess');
+    })
+    .catch(err => {
+    console.log(err);
+      res.status(500).send({
+        message: "Error updating post",
+      });
+    });
+}
+
+
+var deletePost = (req, res) => {
+console.log(req.params);
+  Post.findByIdAndRemove(req.params.id, { useFindAndModify: false })
+    .then((post) => {
+      if (!post) {
+        return res.status(404).send({
+          message: "Post not found ",
+        });
+      }
+      //res.send({ message: "Post deleted successfully!" });
+      res.render("deletionsuccess");
+    })
+    .catch((err) => {
+      return res.status(500).send({
+        message: "Could not delete post ",
+      });
     });
 }
 
@@ -163,3 +263,8 @@ module.exports.editProfilePage = editProfilePage;
 module.exports.passwordCheck = passwordCheck;
 module.exports.userLoginPage = userLoginPage;
 module.exports.userRegisterPage = userRegisterPage;
+module.exports.deletePost = deletePost;
+module.exports.update = update;
+module.exports.showEditPostPage = showEditPostPage;
+
+

@@ -1,16 +1,15 @@
 <html lang="en-US">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Dots Forum</title>
     <link rel="stylesheet" id="bootstrap-css-css" href="/css/bootstrap5152.css?ver=1.0" type="text/css" media="all">
     <link rel="stylesheet" id="main-css-css" href="/css/main5152.css?ver=1.0" type="text/css" media="all">
       <link rel="stylesheet" id="responsive-css-css" href="/css/responsive5152.css?ver=1.0" type="text/css" media="all">
-</head>
-
+    </head>
 <body>
 
-    <!-- header -->
+    <!-- Start of Header -->
     <div class="header-wrapper">
         <header>
             <div class="container">
@@ -19,81 +18,79 @@
                     <span class="tag-line">Dots Forum: A perfect platform for industry information sharing</span>
                 </div>
 
-                <!--  navigation -->
+
+                <!-- Start of Main Navigation -->
                 <nav class="main-nav">
                     <div class="menu-top-menu-container">
                         <ul id="menu-top-menu" class="clearfix">
-                            <li class="current-menu-item"><a href="/">Home</a></li>
-                                 <li><a href="/about">About</a></li>
-                                 <!--<li><a href="/loggedin/createpost">Ask Question</a></li>-->
-                                 <li><a href="/login">Log In</a></li>
-                                 <li><a href="/register">Register</a></li>
-                                 <li><a href="/contact">Contact</a></li>
-                                 <li><a href="/promotion">Promotion</a></li>
+                            <li><a href="/loggedin">Home</a></li>
+                            <li class="current-menu-item"><a href="/loggedin/createpost">Ask Question</a></li>
+                            <li><a href="/logout">Log Out</a></li>
+                            <li><a href="/loggedin/profile">Edit Profile</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/promotion">Promotion</a></li>
+
 
                         </ul>
                     </div>
                 </nav>
-                <!--  navigation ends-->
-
+                <!-- End of Main Navigation -->
             </div>
         </header>
     </div>
-    <!-- header ends -->
+    <!-- End of Header -->
 
-    <!-- Search Wrapper -->
-    <div class="search-area-wrapper">
-
-        <div class="search-area container">
-            <h3 class="search-header">Need Answers for Questions Related to the Industry?</h3>
-            <p class="search-tag-line">Simply search and get insights here!</p>
-            <form id="search-form" class="search-form clearfix" method="get" action="/search" autocomplete="off">
-                <input class="search-term required" type="text" id="s" name="s" placeholder="Type your key word here"
-                    title="* Please enter a search term!">
-                <input class="search-btn" type="submit" value="Search">
-                <div id="search-error-container"></div>
-            </form>
+    <!-- Start of Search Wrapper -->
+    <div class="search-area-wrapper2">
+        <div class="search-area container2">
+            <h3 class="search-header">Did not find the answer to your question?</h3>
+            <p class="search-tag-line">Just ask a new question!</p>
         </div>
     </div>
-    <!-- Search Wrapper ends -->
+    <!-- End of Search Wrapper -->
 
-
-    <!-- Page content -->
+    <!-- Start of Page Container -->
     <div class="page-container">
         <div class="container">
             <div class="row">
-
-                <!-- page content -->
+                <!-- start of page content -->
                 <div class="span8 page-content">
-                    <div class="row separator">
-
-                        <!--render all user posts-->
-                        <section class="span4 articles-list">
-                            <h3>Question List</h3>
-                            <h6>**Please register and log in before you can create new questions!</h6>
-                            <h6>**Logged in users can see "Ask a question" option on the top bar.</h6>
-                            <h6></h6>
-
-
-                            <ul class="articles">
-                                <% for(var i = addedpost.length-1; i >=0;i--){ %>
-                                <li class="article-entry standard">
-                                    <h4><a href="/post/<%=addedpost[i]._id%>"> <%= addedpost[i].title %>
-                                            <%= addedpost[i].posttype %></a></h4>
-                                    <span class="article-meta">Asked By <span
-                                            id="authorname"><%= addedpost[i].name %></span></span>
-                                </li>
-                                <% } %>
-                            </ul>
-                        </section>
-
+                    <article class="type-page hentry clearfix">
+                        <h2 class="post-title">New Contact</h2>
+                        <hr>
+                    </article>
+                    <form id="contact-form" class="row" action="/loggedin/createcontact" method="post">
+                        <div class="span2">
+                            <label for="name">School/Company Name <span>*</span></label>
                         </div>
-                    </div>
+                        <div class="span6">
+                            <input type="text" name="title" id="name" class="required input-xlarge" value=""
+                                title="* Please provide your title">
+                        </div>
+         <!--               <div class="span2">
+                            <label for="email2">User Name <span>*</span></label>
+                        </div>
 
+                        <div class="span6">
+                            <input type="text" name="name" id="email" class="email required input-xlarge" value=""
+                                title="* Please provide valid user name">
+                        </div>-->
 
+                        <div class="span2">
+                            <label for="message2">Contact Details <span>*</span></label>
+                        </div>
+                        <div class="span5">
+                            <textarea name="content" id="message" class="required span5" rows="5"
+                                title="* Please enter your message"></textarea>
+                        </div>
+                        <div class="span6 offset2 bm30">
+                            <input type="submit" name="submit" value="Submit" class="btn btn-inverse">
+                        </div>
 
-
-
+                        </form>
+                </div>
+                <!-- end of page content -->
 
                 <!-- start of sidebar -->
                 <aside class="span4 page-sidebar">
@@ -101,8 +98,8 @@
                     <section class="widget">
                         <div class="support-widget">
                             <h3 class="title">Dots Forum Organizers</h3>
-                                <p class="intro">If you have questions related to the Dots Forum, click <a
-                                   href="/askexpert">here</a>.</p>
+                            <p class="intro">If you have questions related to the Dots Forum, click <a
+                                    href="/askexpert">here</a>.</p>
                         </div>
                     </section>
 
@@ -110,27 +107,14 @@
                         <div class="quick-links-widget">
                             <h3 class="title">Quick Links</h3>
                             <ul id="menu-quick-links" class="menu clearfix">
-                                <li><a href="/">Home</a></li>
+                                <li><a href="/loggedin">Home</a></li>
                                 <li><a href="/loggedin/createpost">Ask Question</a></li>
-                                <li><a href="/login">Log In</a></li>
-                                <li><a href="/register">Register</a></li>
+                                <li><a href="/logout">Log Out</a></li>
+                                <li><a href="/loggedin/profile">Edit Profile</a></li>
 
                             </ul>
                         </div>
                     </section>
-
-                    <section class="widget">
-                        <h3 class="title">Topics</h3>
-                        <div class="tagcloud">
-                            <a href="#" class="btn btn-mini">Finding Employment</a>
-                            <a href="#" class="btn btn-mini">Tech Trend</a>
-                            <a href="#" class="btn btn-mini">Venture Capital Sharing</a>
-                            <a href="#" class="btn btn-mini">Start-up Ideas</a>
-                            <a href="#" class="btn btn-mini">Economic predictions</a>
-
-                        </div>
-                    </section>
-
                 </aside>
                 <!-- end of sidebar -->
             </div>
@@ -187,13 +171,12 @@
                 <div class="span3">
                     <section class="widget">
                         <h3 class="title">Quick Links</h3>
-                        <ul>
-                            <li><a href="/" title="Home">Home</a> </li>
-                            <li><a href="/loggedin/createpost">Ask Question</a></li>
-                            <li><a href="/login" title="Log In">Log In</a></li>
-                            <li><a href="/register" title="Register">Register</a></li>
+                        <ul><li><a href="/loggedin">Home</a></li>
+                        <li><a href="/loggedin/createpost">Ask Question</a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                        <li><a href="/loggedin/profile">Edit Profile</a></li>
                         </ul>
-                    </section>
+                        </section>
                 </div>
 
             </div>
@@ -209,7 +192,7 @@
                             Copyright &copy; 2020.DotsForum All rights reserved.
                         </p>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -217,8 +200,6 @@
 
     </footer>
     <!-- End of Footer -->
-
-    <a href="#top" id="scroll-top"></a>
 
 </body>
 

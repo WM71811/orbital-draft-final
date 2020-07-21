@@ -65,12 +65,12 @@ console.log(req.session.userId);
              };*/
 
 
-var update = function(req, res) {
  /* if (!req.body) {
     return res.status(400).send({
       message: "Data to update can not be empty!"
     });
   }*/
+/*var update = function(req, res) {
 
       User.findById(req.session.userId)
           .exec(function (error, user) {
@@ -100,6 +100,7 @@ var update = function(req, res) {
 };
 
 var deletePost = (req, res) => {
+console.log(req.params);
   Post.findByIdAndRemove(req.params.id)
     .then((post) => {
       if (!post) {
@@ -114,7 +115,7 @@ var deletePost = (req, res) => {
         message: "Could not delete post ",
       });
     });
-};
+};*/
 
 /*// enter create edit page
 var showEditPostPage =function(req, res)  {
@@ -122,8 +123,14 @@ console.log("cannot find editpost");
     res.render('editpost');
 }
 */
+/*var helloWorld = function(req, res) {
+console.log("test");
+res.send('Got a DELETE request');
+}*/
+
 module.exports.createPost = createPost;
 module.exports.showCreatePostPage = showCreatePostPage;
-module.exports.update = update;
+/*module.exports.update = update;
 module.exports.deletePost = deletePost;
+module.exports.helloWorld = helloWorld;*/
 //module.exports.showEditPostPage=showEditPostPage;

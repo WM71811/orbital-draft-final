@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Post = mongoose.model('userposts');
 var User = require('../models/user');
+var Feedback = require('../models/feedback');
+var Contact = mongoose.model('usercontact');
 
 
 //show homepage after logged in
@@ -28,6 +30,7 @@ var homePage = function(req,res){
             res.sendStatus(500);
         } else {
             // res.send(users);
+
             res.render('index', {
                 addedpost: users,
             });
@@ -49,17 +52,6 @@ var showIndex = function (req,res) {
         });
 }
 
-var showEditPostPage =function(req, res)  {
-Post.find((err, users) => {
-            if (err) {
-                res.sendStatus(500);
-            } else {
-                res.render('editpost', {
-                    addedpost: users,
-                });
-            }
-        });
-}
 
 // find all user posts
 var findAllPosts = function(req,res){
@@ -78,9 +70,33 @@ var askExpert = function (req,res) {
 
 }
 
+var sendFeedback = function (req, res) {
+    var feedback1 = new Feedback({
+            "title"  : req.body.title,
+            "name" : req.body.name,
+            "postcontent":req.body.postcontent,
+            "date": Date.now()
+            });
+
+     feedback1.save(function( err, feedbacks, count ){
+                           res.render('postfeedback');
+                       });
+}
+
 //render search result page
 var search= function (req,res) {
-    res.render('searchpage');
+                console.log(req.query.s);
+     Post.find({title: {'$regex': '^'+req.query.s, '$options':'i'} }, (err, users) => {
+                if (err) {
+                    res.sendStatus(500);
+                } else {
+                //console.log(req);
+                console.log(users);
+                    res.render('searchpage', {
+                        addedpost: users,
+                    });
+                }
+            });
 }
 
 //render postfeedback page
@@ -88,9 +104,23 @@ var postFeedback= function (req,res) {
     res.render('postfeedback');
 }
 
+var commentsuccess= function (req,res) {
+     res.render('commentsuccess');
+ }
+
 //render contact page
 var contact= function (req,res) {
-    res.render('contact');
+    //res.render('contact');
+    Contact.find((err, users) => {
+            if (err) {
+                res.sendStatus(500);
+            } else {
+                // res.send(users);
+                res.render('contact', {
+                    addedcontact: users,
+                });
+            }
+        });
 }
 
 //render promotion page
@@ -101,6 +131,10 @@ var promotion= function (req,res) {
 //render about page
 var about= function (req,res) {
     res.render('about');
+}
+
+var deletionSuccess = function (req,res) {
+    res.render('deletionsuccess');
 }
 
 
@@ -119,5 +153,11 @@ module.exports.search = search;
 module.exports.about = about;
 module.exports.promotion = promotion;
 module.exports.contact = contact;
-module.exports.showEditPostPage = showEditPostPage;
+module.exports.deletionSuccess = deletionSuccess;
+module.exports.commentsuccess = commentsuccess;
+module.exports.sendFeedback = sendFeedback;
+
+
+
+
 

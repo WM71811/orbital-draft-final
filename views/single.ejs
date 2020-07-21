@@ -6,6 +6,11 @@
     <link rel="stylesheet" id="bootstrap-css-css" href="/css/bootstrap5152.css?ver=1.0" type="text/css" media="all">
     <link rel="stylesheet" id="main-css-css" href="/css/main5152.css?ver=1.0" type="text/css" media="all">
      <link rel="stylesheet" id="responsive-css-css" href="/css/responsive5152.css?ver=1.0" type="text/css" media="all">
+     <script> 
+           function deletePost() {
+            console.log("helloWorld!");
+           }
+     </script>
 </head>
 
 <body>
@@ -70,12 +75,13 @@
                                     Comments</a></span>
 
                             <span id="authorname"><%= addedpost.name %></span></a></span>
-                            <a class="btn btn-mini">Solved</a>
                         </div><!-- end of post meta -->
                         <p><%= addedpost.postcontent %></p>
                         <div class="tagcloud">
                             <a href="/post/<%=addedpost._id%>/edit" class="btn btn-mini">Edit Post</a>
                             <a href="/post/<%=addedpost._id%>/delete" class="btn btn-mini">Delete Post</a>
+                           <!-- <form class="row" action="/" method="DELETE">-->
+
                         </div>
                     </article>
 
@@ -100,6 +106,7 @@
                                                 <time> <%= comments[i].created %></time>
                                             </a>
                                         </p>
+                            <a href="/post/<%=comments[i]._id%>/deletecomment" class="btn btn-mini">Delete Comment</a>
                                     </div>
                                     <% } %>
                                 </article>
@@ -112,7 +119,7 @@
                                 <a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Click
                                     here to cancel reply.</a>
                             </div>
-                            <form action="/post/:id/createcomment" method="post" id="commentform">
+                            <form action="/post/<%=addedpost._id%>/createcomment" method="post" id="commentform">
                                 <div>
                                     Leave A Anonymous Name:
                                     <input type="text" name="username" id="username">

@@ -62,12 +62,12 @@
                         <h2 class="post-title">Edit Question</h2>
                         <hr>
                     </article>
-                    <form id="contact-form" class="row" action="/post/<%=addedpost._id%>/edit" method="PUT">
+                    <form id="contact-form" class="row" action="/post/<%=addedpost._id%>/edit" method="post">
                         <div class="span2">
                             <label for="name">Title <span>*</span></label>
                         </div>
                         <div class="span6">
-                            <input type="text" name="title" id="name" class="required input-xlarge" value=""
+                            <input type="text" name="title" id="name" class="required input-xlarge" value='<%= addedpost.title %>'
                                 title="* Please provide your title">
                         </div>
                         <div class="span2">
@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="span6">
-                            <input type="text" name="name" id="email" class="email required input-xlarge" value=""
+                            <input type="text" name="name" id="email" class="email required input-xlarge" value='<%= addedpost.title %>'
                                 title="* Please provide valid user name">
                         </div>
 
@@ -83,7 +83,7 @@
                             <label for="message2">Question Content <span>*</span></label>
                         </div>
                         <div class="span5">
-                            <textarea name="postcontent" id="message" class="required span5" rows="5"
+                            <textarea name="postcontent" id="message" class="required span5" rows="5" value='<%= addedpost.postcontent %>'
                                 title="* Please enter your message"></textarea>
                         </div>
                         <div class="span6 offset2 bm30">

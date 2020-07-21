@@ -53,6 +53,21 @@
                     <p> TsingHua University: webmaster@tsinghua.edu.cn </p>
                     <p> Peking University: its@pku.edu.cn  </p>
                     <p> University of California, Berkeley: webmaster@berkerley.edu </p>
+                    <!-- to input contact info -->
+                    <h4> Only users identified as "company" when registering can add new contacts.</h4>
+                    <a href="/loggedin/createcontact" class="btn btn-mini">In Put Contact Info</a>
+                    <ul class="articles">
+                        <% for(var i = addedcontact.length-1; i >=0;i--){ %>
+                            <li class="article-entry standard">
+                                <h4><a href="/contact/<%=addedcontact[i]._id%>"> <%= addedcontact[i].title %>
+                                    <%= addedcontact[i].posttype %></a></h4>
+
+                                        <span class="article-meta">Provided By <span
+                                            id="authorname"><%= addedcontact[i].name %></span></span>
+
+                            </li>
+                        <% } %>
+                    </ul>
                     </div>
                 </div>
 

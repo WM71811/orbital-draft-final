@@ -5,7 +5,12 @@
     <title>Dots Forum</title>
     <link rel="stylesheet" id="bootstrap-css-css" href="/css/bootstrap5152.css?ver=1.0" type="text/css" media="all">
     <link rel="stylesheet" id="main-css-css" href="/css/main5152.css?ver=1.0" type="text/css" media="all">
-      <link rel="stylesheet" id="responsive-css-css" href="/css/responsive5152.css?ver=1.0" type="text/css" media="all">
+     <link rel="stylesheet" id="responsive-css-css" href="/css/responsive5152.css?ver=1.0" type="text/css" media="all">
+     <script> 
+           function deletePost() {
+            console.log("helloWorld!");
+           }
+     </script>
 </head>
 
 <body>
@@ -23,19 +28,17 @@
                 <nav class="main-nav">
                     <div class="menu-top-menu-container">
                         <ul id="menu-top-menu" class="clearfix">
-                            <li class="current-menu-item"><a href="/">Home</a></li>
+                            <li><a href="/">Home</a></li>
                                  <li><a href="/about">About</a></li>
-                                 <!--<li><a href="/loggedin/createpost">Ask Question</a></li>-->
+                                 <li><a href="/loggedin/createpost">Ask Question</a></li>
                                  <li><a href="/login">Log In</a></li>
                                  <li><a href="/register">Register</a></li>
                                  <li><a href="/contact">Contact</a></li>
                                  <li><a href="/promotion">Promotion</a></li>
-
                         </ul>
                     </div>
-                </nav>
+                    </nav>
                 <!--  navigation ends-->
-
             </div>
         </header>
     </div>
@@ -43,54 +46,41 @@
 
     <!-- Search Wrapper -->
     <div class="search-area-wrapper">
-
         <div class="search-area container">
             <h3 class="search-header">Need Answers for Questions Related to the Industry?</h3>
             <p class="search-tag-line">Simply search and get insights here!</p>
-            <form id="search-form" class="search-form clearfix" method="get" action="/search" autocomplete="off">
-                <input class="search-term required" type="text" id="s" name="s" placeholder="Type your key word here"
-                    title="* Please enter a search term!">
-                <input class="search-btn" type="submit" value="Search">
+            <form id="search-form" class="search-form clearfix" method="get" action="#">
+                <input class="search-term required" type="text" id="s" name="s"
+                    placeholder="Type your questions here for related answers..." title=" enter a search term!"
+                    autocomplete="off">
+                <input class="search-btn" type="submit" value="Let's go!">
                 <div id="search-error-container"></div>
             </form>
         </div>
     </div>
     <!-- Search Wrapper ends -->
 
-
-    <!-- Page content -->
+    <!-- Start of Page Container -->
     <div class="page-container">
         <div class="container">
             <div class="row">
-
-                <!-- page content -->
+                <!-- start of page content -->
                 <div class="span8 page-content">
-                    <div class="row separator">
+                    <article class=" type-post format-standard hentry clearfix">
+                        <h2 class="post-title"><%= addedcontact.title%></h2>
+                        <div class="post-meta clearfix">
+                            <span class="date"><%= addedcontact.date%></span>
 
-                        <!--render all user posts-->
-                        <section class="span4 articles-list">
-                            <h3>Question List</h3>
-                            <h6>**Please register and log in before you can create new questions!</h6>
-                            <h6>**Logged in users can see "Ask a question" option on the top bar.</h6>
-                            <h6></h6>
+                            <span id="authorname"><%= addedcontact.name %></span></a></span>
+                        </div><!-- end of post meta -->
+                                                <h2 class="post-title"><%= addedcontact.content%></h2>
 
-
-                            <ul class="articles">
-                                <% for(var i = addedpost.length-1; i >=0;i--){ %>
-                                <li class="article-entry standard">
-                                    <h4><a href="/post/<%=addedpost[i]._id%>"> <%= addedpost[i].title %>
-                                            <%= addedpost[i].posttype %></a></h4>
-                                    <span class="article-meta">Asked By <span
-                                            id="authorname"><%= addedpost[i].name %></span></span>
-                                </li>
-                                <% } %>
-                            </ul>
-                        </section>
+                        <div class="tagcloud">
+                            <a href="/contact/<%=addedcontact._id%>/delete" class="btn btn-mini">Delete Contact</a>
+                           <!-- <form class="row" action="/" method="DELETE">-->
 
                         </div>
-                    </div>
-
-
+                    </article>
 
 
 
@@ -101,8 +91,8 @@
                     <section class="widget">
                         <div class="support-widget">
                             <h3 class="title">Dots Forum Organizers</h3>
-                                <p class="intro">If you have questions related to the Dots Forum, click <a
-                                   href="/askexpert">here</a>.</p>
+                            <p class="intro">If you have questions related to the Dots Forum, click <a
+                                  href="/askexpert">here</a>.</p>
                         </div>
                     </section>
 
@@ -151,8 +141,7 @@
                             <p>The online Dots Forum allows for sharing of trendy industry information and communication
                                 among students, start-up employees and venture capital representatives. We also
                                 distributes information regarding the offline Dots Forum. One can search for the
-                                answers to one's questions by entering keywords in the search bar.
-                            </p>
+                                answers to one's questions by entering keywords in the search bar.</p>
                         </div>
                     </section>
                 </div>
@@ -194,6 +183,7 @@
                             <li><a href="/register" title="Register">Register</a></li>
                         </ul>
                     </section>
+
                 </div>
 
             </div>
@@ -209,7 +199,7 @@
                             Copyright &copy; 2020.DotsForum All rights reserved.
                         </p>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -218,7 +208,6 @@
     </footer>
     <!-- End of Footer -->
 
-    <a href="#top" id="scroll-top"></a>
 
 </body>
 

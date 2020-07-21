@@ -34,7 +34,7 @@ app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-console.log(req);
+//console.log(req.params);
   var err = new Error('File Not Found');
   err.status = 404;
   next(err);
