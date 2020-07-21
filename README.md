@@ -1,4 +1,4 @@
-#Dots Forum
+Dots Forum
 
 Motivation
 
@@ -60,7 +60,17 @@ User Stories
 
  
 
-Current Progress
+Scope of the Project
+
+
+
+A Web-based forum, with token-based authentication, that will provide question-and-answer functionality and allow for posting of information including recruitment information. 
+
+An About Page that introduce to users the basic functionality of our application and inform them of our mission and vision. An Promotion Page that inform the users of the offline forum and recruitment. 
+
+A Contact Page listing all our partner companies/universities including all industries so that our users will be able to contact their interested companies. 
+
+Front end design, UI interaction improvement and tidying up. 
 
  
 
