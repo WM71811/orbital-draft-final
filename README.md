@@ -131,17 +131,17 @@ Core Features
 
          Users can register with their email account and set up their username and password. The "introduction" field will require them to fill in whether they are of type "student" or "company." Only users identified as "company" can add contacts in the contact page, while users identified as "students" cannot. Users who does not repeat password correctly, or fill in repeated email addresses that have been registered will receive an error and need to go back to the previous page to try again.
 
-[pic]
+
 
          Users completed registration are logged in automatically. For users who need to log in after registrating an account previously, they can log in by clicking the "log in" button in the top bar and fill in their email address and password.
 
-[]
+
 
      2. Edit User Profile
 
           Users can edit their user profile by changing their email address, name and password. Due to authentication process, they need to input a different email address each time.
 
-[]
+
 
  
 
@@ -151,31 +151,31 @@ Core Features
 
           Users can create new posts and comments after logging in. After logging in, the top bar will have a "ask a question" button, by clicking which, they can fill in the form to create a new post. Comments can be created after clicking an individual post in the index page, and then scroll down the individual post page to add a comment.
 
-[]
+
 
      4. About Page
 
          The About page introduces to users the people and story behind Dots Forum and our vision. It can be accessed by clicking the "About" button in the top bar.
 
-[]
+
 
      5. Contact Page
 
           The Contact page enables insterested parties/individuals to reach the partner schools.
 
-[]
+
 
      6. Promotion Page
 
            The Promotion page publicise the physical Dots Forum and to encourage more people to join.
 
-[]
+
 
      7. Home Page
 
            The home page allows the users to see all the posts and they are able to click into each post to check the post content and comments.
 
-[]
+
 
  
 
@@ -183,19 +183,19 @@ Core Features
 
      8. Delete, edit post and delete comment
 
-            The users can edit or delete a post after entering an individuak post page, which is the page shown after clicking the name of a specific post in the home page. The edit button redirects users to the page to edit the post, while the delete button allows the user to delete a post. The comments can also be deleted by clicking the delete button.
+           The users can edit or delete a post after entering an individuak post page, which is the page shown after clicking the name of a specific post in the home page. The edit button redirects users to the page to edit the post, while the delete button allows the user to delete a post. The comments can also be deleted by clicking the delete button.
 
-            This is necessary as it ensures that users are able to edit posts to better suit their needs and delete them if they would like to.
+           This is necessary as it ensures that users are able to edit posts to better suit their needs and delete them if they would like to.
 
-[]
+
 
      9. Showing only comments related to a single post in the individual post page
 
-            This is done by implementing the one-to-many relationship between post and comments. This makes sure that comments created in a particular post page are only shown in that post page, but not in other post pages.
+           This is done by implementing the one-to-many relationship between post and comments. This makes sure that comments created in a particular post page are only shown in that post page, but not in other post pages.
 
-            This is necessary as it allows for better communication between users who questioned and users who answered the question, since they could know which user is answering which post.
+           This is necessary as it allows for better communication between users who questioned and users who answered the question, since they could know which user is answering which post.
 
-[]
+
 
      10. Search posts function
 
@@ -205,25 +205,25 @@ Core Features
 
  
 
-[]
+
 
      11. Ability to add contacts by part of the users only
 
             The contacts can be added by users who are identified as "company", but not those who are identified as "student". This ensures that only the users belonging to certain companies can edit the contact page. The contacts can be added by clicking the "add a contact" button which redirects the users to a form to add a new contact. 
 
-[]
+
 
  
 
      12. Show and delete contacts
 
-             The contact page shows all the contacts added. The added contacts can be clicked, which redirects users to individual contact pages to see more information, in which page users can also delete the contact.
+            The contact page shows all the contacts added. The added contacts can be clicked, which redirects users to individual contact pages to see more information, in which page users can also delete the contact.
 
  
 
      13. Ask Organizers function
 
-             The ask organizers function allows users to ask organizers in case they have any questions. They can click the button at the side bar which redirects them to a new form page, and the questions they submitted will be addressed by the organizers later.
+            The ask organizers function allows users to ask organizers in case they have any questions. They can click the button at the side bar which redirects them to a new form page, and the questions they submitted will be addressed by the organizers later.
 
  
 
