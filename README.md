@@ -225,7 +225,12 @@ Core Features
 
             The ask organizers function allows users to ask organizers in case they have any questions. They can click the button at the side bar which redirects them to a new form page, and the questions they submitted will be addressed by the organizers later.
 
+
  
+     14. Only users who created the post can edit or delete the post
+             
+            This function allows users who created the particular post to edit or delete the post. This ensures that the post would not be deleted or edited by other users.
+
 
  
 
