@@ -1,4 +1,38 @@
-Dots Forum
+Dots Forum 
+
+Setting up of Dots Forum’s web application :
+
+1. Clone the repo in this link https://github.com/WM71811/orbital.git 
+
+2. Install Node.js RUN “npm install” in termial RUN “node app.js” to start the server, ensure not using “NUS_STU” wifi (Wireless@SG is ok).
+
+3. Navigate to localhost:3000 to try out our prototype
+
+ 
+
+ 
+
+Team Name:
+
+ 
+
+ DotsTech
+
+ 
+
+ 
+
+Proposed Level of Achievement:
+
+  
+
+Apollo 11
+
+ 
+
+A web application that facilitates communication during Dots Forums.
+
+
 
 Motivation
 
@@ -54,71 +88,144 @@ User Stories
 
 5.As a venture capital associate, I would like to see which start-up companies are attracting the most number of top university graduates as it is a sign of good ability to generate quality products in demand.
 
- 
+
+
 
  
 
  
 
-Scope of the Project
+ 
 
+Scope of Project
 
+ 
 
 A Web-based forum, with token-based authentication, that will provide question-and-answer functionality and allow for posting of information including recruitment information. 
 
+ 
+
 An About Page that introduce to users the basic functionality of our application and inform them of our mission and vision. An Promotion Page that inform the users of the offline forum and recruitment. 
 
-A Contact Page listing all our partner companies/universities including all industries so that our users will be able to contact their interested companies. 
+ 
 
-Front end design, UI interaction improvement and tidying up. 
+A Contact Page listing all our partner companies/universities including all industries so that our users will be able to contact their interested companies. Users identified as "company" can add contacts in the contact page.
+
+ 
+
+Front end design and UI interaction improvement. 
 
  
 
  
 
-As of 29th May : Completed and tested login and registration functions, using Node.js + MySQL. These changes can be reflected in mydb (our test database built with MySQL). Our lastly progress is on branch 'loginfrontend', whereas login_branch1 contains only backend development.
+ 
+
+Core Features
 
  
 
------------------------------------------------------------------------------- The above Progress is achieved by Milestone 1 --------------------------------------------------------------------------------------
+- Features completed in Milestone 1
+
+     1. Login/Sign Up
+
+         Users can register with their email account and set up their username and password. The "introduction" field will require them to fill in whether they are of type "student" or "company." Only users identified as "company" can add contacts in the contact page, while users identified as "students" cannot. Users who does not repeat password correctly, or fill in repeated email addresses that have been registered will receive an error and need to go back to the previous page to try again.
+
+[pic]
+
+         Users completed registration are logged in automatically. For users who need to log in after registrating an account previously, they can log in by clicking the "log in" button in the top bar and fill in their email address and password.
+
+[]
+
+     2. Edit User Profile
+
+          Users can edit their user profile by changing their email address, name and password. Due to authentication process, they need to input a different email address each time.
+
+[]
 
  
 
+- Features completed in Milestone 2
+
+     3. Create, show post and comment
+
+          Users can create new posts and comments after logging in. After logging in, the top bar will have a "ask a question" button, by clicking which, they can fill in the form to create a new post. Comments can be created after clicking an individual post in the index page, and then scroll down the individual post page to add a comment.
+
+[]
+
+     4. About Page
+
+         The About page introduces to users the people and story behind Dots Forum and our vision. It can be accessed by clicking the "About" button in the top bar.
+
+[]
+
+     5. Contact Page
+
+          The Contact page enables insterested parties/individuals to reach the partner schools.
+
+[]
+
+     6. Promotion Page
+
+           The Promotion page publicise the physical Dots Forum and to encourage more people to join.
+
+[]
+
+     7. Home Page
+
+           The home page allows the users to see all the posts and they are able to click into each post to check the post content and comments.
+
+[]
+
  
 
-As of 9th June : Switched from MySQL  database to MongoDB Atlas (cloud server) and configured the databease ,  using Node.js + HTML to build the rest of the app . MongoDB is chosen baceuse is it a type of NoSQL. NoSQL databases performs better as it is able to support forum functions such as create posts at a higher rate. 
+- Features completed in Milestone 3
+
+     8. Delete, edit post and delete comment
+
+            The users can edit or delete a post after entering an individuak post page, which is the page shown after clicking the name of a specific post in the home page. The edit button redirects users to the page to edit the post, while the delete button allows the user to delete a post. The comments can also be deleted by clicking the delete button.
+
+            This is necessary as it ensures that users are able to edit posts to better suit their needs and delete them if they would like to.
+
+[]
+
+     9. Showing only comments related to a single post in the individual post page
+
+            This is done by implementing the one-to-many relationship between post and comments. This makes sure that comments created in a particular post page are only shown in that post page, but not in other post pages.
+
+            This is necessary as it allows for better communication between users who questioned and users who answered the question, since they could know which user is answering which post.
+
+[]
+
+     10. Search posts function
+
+            The search bar allows users to search the titles of the posts. If users input "1", for example, then if the title of the posts are "1", "13", "2", then the search result would be "1" and "13". This is done by implementing regex. The search results can be clicked to be redirected to the individual post pages.
+
+            This is necessary as when the number of posts is large, searching allows for efficiency in finding the posts that users have interests in.
 
  
 
-As of 11th June : Successfully trasnferred the Login and SignUp functionalists to the new app and built user Home page. From this point onwards, all our Milestone 1 achievemnts has been transferred to our new application based on MongoDB, Node.js, JavaScript, CSS  and HTML.
+[]
+
+     11. Ability to add contacts by part of the users only
+
+            The contacts can be added by users who are identified as "company", but not those who are identified as "student". This ensures that only the users belonging to certain companies can edit the contact page. The contacts can be added by clicking the "add a contact" button which redirects the users to a form to add a new contact. 
+
+[]
 
  
 
-As of 14th June :  Successfully constructed the Forum page, Post and Comment functionality. Users can now create posts and replies. Also, tests are conducted to ensure the post and comments' contents can be reflected in the database. 
+     12. Show and delete contacts
+
+             The contact page shows all the contacts added. The added contacts can be clicked, which redirects users to individual contact pages to see more information, in which page users can also delete the contact.
 
  
 
-As of 16th June : Successfully constructed the About page to introduce to users the people and story behind Dots Forum and our vision. 
+     13. Ask Organizers function
+
+             The ask organizers function allows users to ask organizers in case they have any questions. They can click the button at the side bar which redirects them to a new form page, and the questions they submitted will be addressed by the organizers later.
 
  
-
-As of 17th June : Successfully constructed the Contact page to enable insterested parties/individuals to reach the partner schools.
-
- 
-
-As of 18th June : Successfully constructed the Promotion page to publicise the physical Dots Forum and to encourage more people to join.
-
- 
-
-As of 20th June : Created the edit profile function to allow users to edit credentials and their personal introduction. Solved some minor bugs and layout issues related to the navigation bar, side bar and base bar.
-
- 
-
-As of 24th June : Instantiation of the Forum page. Constructed a list for users to view all questions asked and added search operations to enable users to search for their interested topics. The search bar is added to the page, however, the search functionality is under develop.
-
- 
-
-As of 29 June: In the progress of developing the functions that we wish to implement in July: 1. allow for edit and delete posts in case user wish to do so for personal reasons; 2. one-to-many relationship between a post and many replies, instead of independent relationship between posts and replies.
 
  
 
@@ -126,36 +233,16 @@ Problems Encounted
 
  
 
-1. We were not able to connect to MongoDB Atlas for quite some time and could not find the problem. The error is one of connection failure and despite we tried different ways such as connecting through Mongoose and Mongo Shell. After extensive searching, we found that the error is due to the embedded firewall property of the nusstu Wi-Fi, and resolved the problem by connecting to another data source (Wireless @ SG).
-
+We were not able to connect to MongoDB Atlas for quite some time and could not find the problem. The error is one of connection failure and despite we tried different ways such as connecting through Mongoose and Mongo Shell. After extensive searching, we found that the error is due to the embedded firewall property of the nusstu Wi-Fi, and resolved the problem by connecting to another data source (Wireless @ SG).
  
 
-2. During the transfer of MySQL to MongoDB, as we were unfamiliar with the cloud server, we were not able to build our server and obtain the correct URL. We resolved this isses by learning about mongoDB using online resources and then built our cluster and database.
-
+During the transfer of MySQL to MongoDB, as we were unfamiliar with the cloud server, we were not able to build our server and obtain the correct URL. We resolved this isses by learning about mongoDB using online resources and then built our cluster and database.
  
 
-3. During the construction and instantiation of the functionality of the Forum page, we faced bugs such as not being able to see a comment posted and not being able to go to the correct pages (Promotion, About etc) . We debugged our app by carefully reviewing the controllers and routes and make necessary changes to fix the bugs.
-
+During the construction and instantiation of double CRUD functionality of the Forum page, we faced bugs such as not being able to see a comment posted and not being able to go to the correct pages (Promotion, About etc) . We debugged our app by carefully reviewing the controllers and routes and make necessary changes to fix the bugs.
  
 
  
 
  
 
-Proposed Level of Achievement : Apolo 11
-
- 
-
- 
-
-Setting up of Dots Forum’s web application :
-
- 
-
- 
-
-Clone the repo in this link https://github.com/WM71811/orbital.git
-Install Node.js 
-RUN “npm install” in termial
-RUN “node app.js” to start the server, ensure not using “NUS_STU” wifi (Wireless@SG is ok)
-Navigate to localhost:3000 to try out our prototype 
