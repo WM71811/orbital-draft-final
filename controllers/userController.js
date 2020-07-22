@@ -223,7 +223,6 @@ User.findById(req.session.userId)
         { const id1 = data.userid;
  if (user._id == id1) {
  Post.findByIdAndUpdate(req.params.id, {"title":obj.title,
-                "name":obj.name,
                 "postcontent":obj.postcontent}, { useFindAndModify: false })
     .then(data => {
       if (!data) {

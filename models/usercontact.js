@@ -7,6 +7,7 @@ const usercontactSchema = mongoose.Schema(
         "name" : String,
         "content":String,
         "posttype":String,
+        "userid" :String,
         "date": { type: Date, default: Date.now }
 
     }

@@ -12,7 +12,8 @@ if (req.session.userId) {
     var contact = new Contact({
         "title":req.body.title,
         "name":user.username,
-        "content":req.body.content
+        "content":req.body.content,
+        "userid":req.session.userId,
     });
 
         contact.save(function(err,users){
@@ -59,7 +60,7 @@ var deleteContact = (req, res) => {
 if (req.session.userId) {
 User.findById(req.session.userId)
         .exec(function (error, user) {
-        Post.findOne({_id : req.params.id}).then(data =>
+        Contact.findOne({_id : req.params.id}).then(data =>
         { const id1 = data.userid;
  if (user._id == id1) {
   Contact.findByIdAndRemove(req.params.id)
