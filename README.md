@@ -227,9 +227,10 @@ Core Features
 
 
  
-     14. Only users who created the post can edit or delete the post
+     14. Only users who created the post can edit or delete the post/delete the contact
              
-            This function allows users who created the particular post to edit or delete the post. This ensures that the post would not be deleted or edited by other users.
+            This function allows users who created the particular post to edit or delete the post/delete the contact. This ensures that the post would not be deleted or edited by other users. Similarly, the contact will not be deleted by other users.
+
 
 
  
