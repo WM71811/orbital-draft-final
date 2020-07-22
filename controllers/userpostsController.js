@@ -5,12 +5,14 @@ var User = require('../models/user');
 
 //this is a function to create post by logged in user
 var createPost = function(req,res){
+if (req.session.userId) {
     User.findById(req.session.userId)
         .exec(function (error, user) {
     var post = new Post({
         "title":req.body.title,
         "name":user.username,
         "postcontent":req.body.postcontent,
+        "userid":req.session.userId,
     });
 
         post.save(function(err,users){
@@ -27,7 +29,12 @@ var createPost = function(req,res){
             }
         });
         });
-};
+}
+else {
+res.render("notloggedin");
+}
+}
+
 
 // enter create post page
 var showCreatePostPage =function(req, res)  {

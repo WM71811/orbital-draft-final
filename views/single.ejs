@@ -6,11 +6,7 @@
     <link rel="stylesheet" id="bootstrap-css-css" href="/css/bootstrap5152.css?ver=1.0" type="text/css" media="all">
     <link rel="stylesheet" id="main-css-css" href="/css/main5152.css?ver=1.0" type="text/css" media="all">
      <link rel="stylesheet" id="responsive-css-css" href="/css/responsive5152.css?ver=1.0" type="text/css" media="all">
-     <script> 
-           function deletePost() {
-            console.log("helloWorld!");
-           }
-     </script>
+
 </head>
 
 <body>
@@ -80,6 +76,7 @@
                         <div class="tagcloud">
                             <a href="/post/<%=addedpost._id%>/edit" class="btn btn-mini">Edit Post</a>
                             <a href="/post/<%=addedpost._id%>/delete" class="btn btn-mini">Delete Post</a>
+                            <p> Only the user who created this post can edit or delete the post. </p>
                            <!-- <form class="row" action="/" method="DELETE">-->
 
                         </div>

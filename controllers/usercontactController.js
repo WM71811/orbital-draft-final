@@ -5,6 +5,7 @@ var User = require('../models/user');
 
 //this is a function to create post by logged in user
 var createContact = function(req,res){
+if (req.session.userId) {
     User.findById(req.session.userId)
         .exec(function (error, user) {
         if (user.introduction == "company") {
@@ -33,6 +34,9 @@ var createContact = function(req,res){
         res.render("additionfailure")}
         });
 
+} else {
+res.render("notloggedin");
+}
 }
 
 // enter create post page
@@ -52,6 +56,12 @@ var getContactById = function(req,res){
 
 
 var deleteContact = (req, res) => {
+if (req.session.userId) {
+User.findById(req.session.userId)
+        .exec(function (error, user) {
+        Post.findOne({_id : req.params.id}).then(data =>
+        { const id1 = data.userid;
+ if (user._id == id1) {
   Contact.findByIdAndRemove(req.params.id)
     .then((post) => {
       if (!post) {
@@ -68,7 +78,13 @@ var deleteContact = (req, res) => {
         message: "Could not delete post ",
       });
     });
-};
+}
+});
+});
+} else {
+res.render("notloggedin");
+}
+}
 
 
 module.exports.createContact = createContact;

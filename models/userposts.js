@@ -8,7 +8,8 @@ const userpostsSchema = mongoose.Schema(
         "posttype":String,
         "comment" : Array,
         "date": { type: Date, default: Date.now },
-        "isSolved":Boolean
+        "isSolved":Boolean,
+        "userid" : String
     }
 );
 mongoose.model('userposts', userpostsSchema);

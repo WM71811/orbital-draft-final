@@ -183,7 +183,7 @@ Core Features
 
      8. Delete, edit post and delete comment
 
-           The users can edit or delete a post after entering an individuak post page, which is the page shown after clicking the name of a specific post in the home page. The edit button redirects users to the page to edit the post, while the delete button allows the user to delete a post. The comments can also be deleted by clicking the delete button.
+           The users can edit or delete a post after entering an individual post page, which is the page shown after clicking the name of a specific post in the home page. The edit button redirects users to the page to edit the post, while the delete button allows the user to delete a post. The comments can also be deleted by clicking the delete button.
 
            This is necessary as it ensures that users are able to edit posts to better suit their needs and delete them if they would like to.
 

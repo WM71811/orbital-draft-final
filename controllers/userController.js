@@ -216,7 +216,12 @@ User.findById(req.session.userId)
 
 }*/
 const obj = JSON.parse(JSON.stringify(req.body));
-
+if (req.session.userId) {
+User.findById(req.session.userId)
+        .exec(function (error, user) {
+        Post.findOne({_id : req.params.id}).then(data =>
+        { const id1 = data.userid;
+ if (user._id == id1) {
  Post.findByIdAndUpdate(req.params.id, {"title":obj.title,
                 "name":obj.name,
                 "postcontent":obj.postcontent}, { useFindAndModify: false })
@@ -234,10 +239,24 @@ const obj = JSON.parse(JSON.stringify(req.body));
       });
     });
 }
-
+else {
+        res.render('editfailure');
+}
+});
+});
+}
+else {
+res.render("notloggedin");
+}
+}
 
 var deletePost = (req, res) => {
-console.log(req.params);
+if (req.session.userId) {
+User.findById(req.session.userId)
+        .exec(function (error, user) {
+        Post.findOne({_id : req.params.id}).then(data =>
+        { const id1 = data.userid;
+ if (user._id == id1) {
   Post.findByIdAndRemove(req.params.id, { useFindAndModify: false })
     .then((post) => {
       if (!post) {
@@ -253,6 +272,16 @@ console.log(req.params);
         message: "Could not delete post ",
       });
     });
+}
+else {
+res.render("deletionfailure");
+}
+});
+});
+}
+else {
+res.render("notloggedin");
+}
 }
 
 
