@@ -66,9 +66,9 @@ router.get('/post/:id/edit', userController.showEditPostPage);
 
 
 //GET route for show ask for organizers page
-router.get('/askexpert',controller.askExpert);
+router.get('/askorganizer',controller.askExpert);
 
-router.post('/askexpert',controller.sendFeedback);
+router.post('/askorganizer',controller.sendFeedback);
 
 //GET route for show searchresult
 router.get('/search',controller.search);
