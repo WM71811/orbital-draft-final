@@ -63,7 +63,7 @@ User.findById(req.session.userId)
         Contact.findOne({_id : req.params.id}).then(data =>
         { const id1 = data.userid;
  if (user._id == id1) {
-  Contact.findByIdAndRemove(req.params.id)
+  Contact.findByIdAndRemove(req.params.id, { useFindAndModify: false })
     .then((post) => {
       if (!post) {
         return res.status(404).send({
