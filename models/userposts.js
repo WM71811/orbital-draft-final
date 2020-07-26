@@ -12,4 +12,5 @@ const userpostsSchema = mongoose.Schema(
         "userid" : String
     }
 );
+userpostsSchema.index( { title: "text" } );
 mongoose.model('userposts', userpostsSchema);
