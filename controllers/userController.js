@@ -99,6 +99,7 @@ var editProfilePage =  function (req, res, next) {
             email: req.body.email,
             username: req.body.username,
             password: req.body.password,
+            introduction: req.body.introduction,
         }
 
         User.create(userData, function (error, user) {
