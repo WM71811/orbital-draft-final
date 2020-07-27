@@ -85,13 +85,13 @@ var sendFeedback = function (req, res) {
 
 //render search result page
 var search= function (req,res) {
-                console.log(req.query.s);
+                //console.log(req.query.s);
      Post.find( {title: {'$regex': req.query.s, '$options': 'i' }} , (err, users) => {
                 if (err) {
                     res.sendStatus(500);
                 } else {
                 //console.log(req);
-                console.log(users);
+                //console.log(users);
                     res.render('searchpage', {
                         addedpost: users,
                     });

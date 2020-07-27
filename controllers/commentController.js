@@ -10,8 +10,8 @@ var createComment = function(req, res ){
         "created" : Date.now()
     });
     var postId = req.params.id;
-    console.log(postId);
-    console.log(comment1._id);
+    //console.log(postId);
+    //console.log(comment1._id);
     comment1.save( function( err, comments, count ){
         Post.findByIdAndUpdate(postId, {$push: {comment: comment1._id}},
         { useFindAndModify: false })
@@ -23,7 +23,7 @@ var createComment = function(req, res ){
                } else res.render('commentsuccess');
              })
              .catch(err => {
-             console.log(err);
+             //console.log(err);
                res.status(500).send({
                  message: "Error updating post",
                });
@@ -34,7 +34,7 @@ var createComment = function(req, res ){
 }
 
 var deleteComment = function(req, res) {
-console.log(req.params);
+//console.log(req.params);
   Comment.findByIdAndRemove(req.params.id, { useFindAndModify: false })
     .then((comment) => {
       if (!comment) {
